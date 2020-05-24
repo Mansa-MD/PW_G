@@ -11,10 +11,9 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-*/
+generateBtn.addEventListener("click", writePassword);*/
 
-function myFunction() {
+function generatePassword() {
   var options = [];
 
   var passwordLength = parseInt(prompt("What is your desired length for this passowrd?\nPassword length must be between 8 to 128 characters"))
@@ -74,14 +73,14 @@ function myFunction() {
 
   var passwordString = options.join("");
   console.log(passwordString);
-}
 
-let password = "";
+  let password = "";
 
-function generatePassword (passwordString, passwordLength) {
-  for(var i = 0; i <= passwordLength; i++){
+  for(var i = 0; i < passwordLength; i++){
     password = password + passwordString.charAt(Math.floor(Math.random() * Math.floor(passwordString.length)));
   }
-console.log(password);
+  console.log(password);
+
 
 }
+
