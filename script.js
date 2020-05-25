@@ -1,19 +1,23 @@
-/*// Assignment Code
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var passwordCriteria = userCriteria();
+  var passwordFinal = generatePassword(passwordCriteria[0], passwordCriteria[1]);
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  
+  passwordText.value = passwordFinal;
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);*/
+generateBtn.addEventListener("click", writePassword);
 
-function generatePassword() {
+// User Requirements to generate password
+function userCriteria() {
+
+//collections of user responses
   var options = [];
 
   var passwordLength = parseInt(prompt("What is your desired length for this passowrd?\nPassword length must be between 8 to 128 characters"))
@@ -70,17 +74,29 @@ function generatePassword() {
     console.log(options);
 
   }
-
+ // Creating a string with user responses
   var passwordString = options.join("");
   console.log(passwordString);
 
-  let password = "";
+ // Array of user desired length and collection of user reponses
+  var criteria = [passwordLength, passwordString];
+
+  return criteria;
+}
+
+// Generate a password from user criteria 
+function generatePassword(passwordLength, passwordString) {
+  
+  var password = "";
 
   for(var i = 0; i < passwordLength; i++){
     password = password + passwordString.charAt(Math.floor(Math.random() * Math.floor(passwordString.length)));
   }
   console.log(password);
 
-
+  return password;
 }
 
+function verifyPassword(password) {
+
+}
